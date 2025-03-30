@@ -64,6 +64,7 @@ libraryDependencies ++= {
   scalaBinaryVersion.value match {
     case "2.13" =>
       Seq(
+        "org.scalatest" %% "scalatest-freespec" % "3.2.19" % Test,
         scalaOrganization.value % "scala-reflect" % scalaVersion.value,
         "com.chuusai" %% "shapeless" % "2.3.13" % Test
       )
