@@ -1,0 +1,24 @@
+on:
+  pull_request:
+  push:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        java: [8, 21]
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-java@v4
+      with:
+        java-version: ${{matrix.java}}
+        distribution: temurin
+    - uses: sbt/setup-sbt@v1
+    - run: sbt -v
+           "+ scalafmtCheckAll"
+           scalafmtSbtCheck
+           "scalafixAll --check"
+           "+ test"
