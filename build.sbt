@@ -104,3 +104,5 @@ releaseProcess := Seq[ReleaseStep](
   commitNextVersion,
   pushChanges
 )
+
+publishTo := sonatypePublishToBundle.value
