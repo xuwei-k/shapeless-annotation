@@ -3,7 +3,6 @@ import sbtrelease.ReleasePlugin.autoImport.ReleaseTransformations._
 def Scala213 = "2.13.16"
 
 crossScalaVersions := Seq(
-  "2.12.20",
   Scala213,
   "3.3.5",
 )
@@ -12,10 +11,6 @@ scalaVersion := Scala213
 
 scalacOptions ++= {
   scalaBinaryVersion.value match {
-    case "2.12" =>
-      Seq(
-        "-Xsource:3",
-      )
     case "2.13" =>
       Seq(
         "-Xsource:3-cross",
@@ -67,22 +62,12 @@ licenses := List(
 
 libraryDependencies ++= {
   scalaBinaryVersion.value match {
-    case "2.12" | "2.13" =>
+    case "2.13" =>
       Seq(
         scalaOrganization.value % "scala-reflect" % scalaVersion.value,
         "com.chuusai" %% "shapeless" % "2.3.13" % Test
       )
     case _ =>
-      Nil
-  }
-}
-
-libraryDependencies ++= {
-  scalaBinaryVersion.value match {
-    case "2.12" =>
-      Seq(compilerPlugin("org.scalamacros" % "paradise" % "2.1.1" cross CrossVersion.patch))
-    case _ =>
-      // https://github.com/scala/scala/pull/6606
       Nil
   }
 }
