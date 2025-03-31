@@ -4,6 +4,15 @@
 
 ```scala
 libraryDependencies += "com.github.xuwei-k" %% "shapeless-annotation" % "version"
+
+scalacOptions ++= {
+  scalaBinaryVersion.value match {
+    case "2.13" =>
+      Seq("-Ymacro-annotations")
+    case _ =>
+      Nil
+  }
+}
 ```
 
 ```scala
