@@ -77,6 +77,8 @@ ThisBuild / scalafixDependencies += "com.github.xuwei-k" %% "scalafix-rules" % "
 ThisBuild / semanticdbEnabled := true
 ThisBuild / semanticdbVersion := scalafixSemanticdb.revision
 
+releaseCrossBuild := true
+
 releaseProcess := Seq[ReleaseStep](
   checkSnapshotDependencies,
   inquireVersions,
