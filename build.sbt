@@ -21,6 +21,7 @@ scalacOptions ++= {
 }
 
 scalacOptions ++= Seq(
+  "-release:8",
   "-deprecation",
   "-feature",
 )
