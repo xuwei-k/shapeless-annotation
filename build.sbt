@@ -87,10 +87,10 @@ releaseProcess := Seq[ReleaseStep](
   commitReleaseVersion,
   tagRelease,
   releaseStepCommandAndRemaining("+ publishSigned"),
-  releaseStepCommandAndRemaining("sonatypeBundleRelease"),
+  releaseStepCommandAndRemaining("sonaRelease"),
   setNextVersion,
   commitNextVersion,
   pushChanges
 )
 
-publishTo := sonatypePublishToBundle.value
+publishTo := (if (isSnapshot.value) None else localStaging.value)
