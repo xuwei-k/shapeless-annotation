@@ -1,6 +1,6 @@
 import sbtrelease.ReleasePlugin.autoImport.ReleaseTransformations._
 
-def Scala213 = "2.13.18"
+def Scala213 = "3.9.0"
 
 crossScalaVersions := Seq(
   Scala213,
