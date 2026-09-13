@@ -55,10 +55,10 @@ description := "shapeless macro annotation"
 
 organization := "com.github.xuwei-k"
 
-homepage := Some(url("https://github.com/xuwei-k/shapeless-annotation"))
+homepage := Some(uri("https://github.com/xuwei-k/shapeless-annotation"))
 
 licenses := List(
-  "MIT License" -> url("https://opensource.org/licenses/mit-license")
+  "MIT License" -> uri("https://opensource.org/licenses/mit-license")
 )
 
 libraryDependencies ++= {
