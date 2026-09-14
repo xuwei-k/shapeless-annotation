@@ -19,6 +19,8 @@ jobs:
         java-version: ${{matrix.java}}
         distribution: temurin
     - uses: sbt/setup-sbt@v1
+      with:
+        disk-cache: false
     - run: sbt -v
            --server
            "+ scalafmtCheckAll"
