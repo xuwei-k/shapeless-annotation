@@ -23,7 +23,6 @@ jobs:
         disk-cache: false
     - run: sbt -v
            --server
-           "+ scalafmtCheckAll"
-           scalafmtSbtCheck
+           scalafmtCheckRepo
            "scalafixAll --check"
            "+ test"
